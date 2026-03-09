@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check lista pendências estágio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Checklist de Documentação</h2>
+    <p style="font-size: 14px; color: #666;">Marque os documentos que o estagiário <b>JÁ ENTREGOU</b>. O texto será gerado apenas com os documentos <b>DESMARCADOS</b>.</p>
+
+    <div class="section-title">Documentação Geral</div>
+    <div class="item"><input type="checkbox" id="check_oficio"><label for="check_oficio">Solicitação de Contratação (Ofício/Gestor)</label></div>
+    <div class="item"><input type="checkbox" id="check_foto"><label for="check_foto">01 (uma) fotografia 3x4</label></div>
+    <div class="item"><input type="checkbox" id="check_banco"><label for="check_banco">Comprovante Bancário (Banestes)</label></div>
+    <div class="item"><input type="checkbox" id="check_declaracao_ensino"><label for="check_declaracao_ensino">Declaração da Instituição de Ensino (IES)</label></div>
+    <div class="item"><input type="checkbox" id="check_rg_cpf"><label for="check_rg_cpf">Cópia de RG e CPF</label></div>
+    <div class="item"><input type="checkbox" id="check_curriculo"><label for="check_curriculo">Currículo Atualizado</label></div>
+    <div class="item"><input type="checkbox" id="check_residencia"><label for="check_residencia">Comprovante de Residência</label></div>
+    <div class="item"><input type="checkbox" id="check_aso"><label for="check_aso">ASO - Atestado de Saúde Ocupacional</label></div>
+    <div class="item"><input type="checkbox" id="check_titulo"><label for="check_titulo">Cópia do Título de Eleitor</label></div>
+    <div class="item"><input type="checkbox" id="check_ctps"><label for="check_ctps">Cópia da CTPS (Carteira de Trabalho)</label></div>
+    <div class="item"><input type="checkbox" id="check_parentesco"><label for="check_parentesco">Declaração de Parentesco</label></div>
+    <div class="item"><input type="checkbox" id="check_vinculo_oab"><label for="check_vinculo_oab">Declaração de Não Vínculo com Advocacia</label></div>
+    <div class="item"><input type="checkbox" id="check_declaracao_banco"><label for="check_declaracao_banco">Declaração de Conta Bancária</label></div>
+    <div class="item"><input type="checkbox" id="check_formulario_cadastro"><label for="check_formulario_cadastro">Formulário de Cadastro (Link PDF)</label></div>
+    <div class="item"><input type="checkbox" id="check_supervisor_anterior"><label for="check_supervisor_anterior">Formulário Supervisor (Estagiário Anterior)</label></div>
+    <div class="item"><input type="checkbox" id="check_dados_supervisor_novo"><label for="check_dados_supervisor_novo">Dados do Supervisor (Nome/CPF)</label></div>
+
+    <div class="section-title">Certidões Negativas</div>
+    <div class="item"><input type="checkbox" id="check_certidao_eleitoral"><label for="check_certidao_eleitoral">Certidão Negativa Eleitoral</label></div>
+    <div class="item"><input type="checkbox" id="check_certidao_militar"><label for="check_certidao_militar">Certidão Negativa Militar</label></div>
+    <div class="item"><input type="checkbox" id="check_certidao_criminal"><label for="check_certidao_criminal">Certidão Negativa Criminal (Estadual/Federal)</label></div>
+
+    <div class="section-title" id="title-con"><input type="checkbox" id="check_con"><label for="check_con"> Conciliador</label></div>
+    <div class="item"><input type="checkbox" id="check_conciliador_informatica"><label for="check_conciliador_informatica">Declaração de Informática</label></div>
+
+    <div class="section-title" id="title-pos"><input type="checkbox" id="check_pos"><label for="check_pos"> Pós Graduação</label></div>
+    <div class="item"><input type="checkbox" id="check_pos_diploma"><label for="check_pos_diploma">Diploma Superior e Declaração OAB</label></div>
+    <div class="item"><input type="checkbox" id="check_pos_vigencia"><label for="check_pos_vigencia">Início e Término do Curso</label></div>
+    
+    <hr>
+
+    <div id="assinatura-container">
+        <form >
+            <label for="input-setor" class="section-title">Setor de destino:</label>
+            <input id="input-setor" class="inputs" type="text">
+        </form>
+
+        <form>
+            <label for="input-nome" class="section-title">Assinatura:</label>
+            <input id="input-nome" class="inputs" type="text">
+        </form>
+        
+    </div>
+    
+    <button id="GenerateButton">Gerar Texto e Copiar para o SEI</button>
+    <p class="nota">O texto será copiado com links e formatação para o editor do SEI, apenas colar na informação</p>
+</div>
+
+<script src="Script.js"></script>
+</body>
+</html>
