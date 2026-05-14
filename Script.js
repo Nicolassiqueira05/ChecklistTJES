@@ -37,7 +37,7 @@ button.addEventListener("click", () => {
         getPendencia("check_vinculo_oab", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/1_Formulario_Declaracao-de-Vinculo-Profissional-20160428.odt" target="_blank" style="color: blue; text-decoration: underline;">Declaração de não vínculo profissional com escritório de advocacia (Art. 24)</a>;`),
         getPendencia("check_declaracao_banco", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/Formul%C3%A1rio-Declara%C3%A7%C3%A3o-de-Conta-Banc%C3%A1ria-20170717.pdf" target="_blank" style="color: blue; text-decoration: underline;">Declaração de Conta Bancária, devidamente preenchida e assinada</a>;`),
         getPendencia("check_formulario_cadastro", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/Fomul%C3%A1rio-de-Cadastro-de-estagi%C3%A1rios.pdf" target="_blank" style="color: blue; text-decoration: underline;">Formulário Obrigatório de Cadastro de Estagiário</a>`),
-        getPendencia("check_supervisor_anterior", `(X) Preencher <b>FORMULÁRIO DO SUPERVISOR DE ESTÁGIO</b> referente ao <b>ESTAGIÁRIO ANTERIOR</b> (modelo disponível no SEI ou em PDF <a href="https://www.tjes.jus.br/modelo-formulario.pdf" target="_blank" style="color: blue; text-decoration: underline;">CLIQUE AQUI</a>)`)
+        getPendencia("check_supervisor_anterior", `(X) Preencher <b>FORMULÁRIO DO SUPERVISOR DE ESTÁGIO</b> referente ao <b>ESTAGIÁRIO ANTERIOR</b> (modelo disponível no SEI ou em PDF <a href="https://www.tjes.jus.br/wp-content/uploads/Formulario_do_Supervisor_-_Estagiarios.pdf" target="_blank" style="color: blue; text-decoration: underline;">CLIQUE AQUI</a>)`)
     ];
 
     const pendenciasCertidoes = [
