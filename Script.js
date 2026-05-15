@@ -74,7 +74,6 @@ button.addEventListener("click", () => {
        
         <p style="margin: 0; background-color: #fbff00">${corpoDocumentos}</p>
        
-        <br>
         <p>Atenciosamente,</br>
         ${document.querySelector("#input-nome").value}
         </p>
