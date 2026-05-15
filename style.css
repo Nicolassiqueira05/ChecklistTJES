@@ -8,7 +8,7 @@ label{
         .item { display: flex; align-items: center; padding: 8px; border-radius: 6px; transition: background 0.2s; cursor: pointer; }
         .item:hover { background-color: #fafaf8; }
         .item input { margin-right: 12px; transform: scale(1.2); cursor: pointer; }
-        .item label { cursor: pointer; flex: 1; }
+        .item label { cursor: pointer; flex-grow: 0; }
         hr { border: 0; border-top: 1px solid #eee; margin: 25px 0; }
         #GenerateButton { 
             width: 100%; padding: 15px; background-color: #27ae60; color: white; border: none; 
@@ -59,3 +59,55 @@ label{
         #title-con label:hover{
             cursor: pointer;
         }
+.tooltip {
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #666;
+  border-radius: 100%;
+  color: #FFF;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+div.tooltip span {
+  position: absolute;
+  visibility: hidden;
+  
+  /* Ajustes para o formato quadrado/retangular */
+  width: auto;
+  min-width: 100px;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 4px;
+  
+  background-color: #666;
+  color: #FFF;
+  text-align: left;
+
+  left: 35px;           
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+div.tooltip span:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;       
+  margin-top: -8px;
+  width: 0; height: 0;
+  border-right: 8px solid #666;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: none;
+}
+
+div:hover.tooltip span {
+  visibility: visible;
+  opacity: 1;
+  z-index: 999;
+}
