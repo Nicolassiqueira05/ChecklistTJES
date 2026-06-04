@@ -9,9 +9,18 @@
 <body>
 
 <div class="container">
-    <h2>Checklist de Documentação</h2>
-    <p style="font-size: 14px; color: #666;">Marque os documentos que o estagiário <b>JÁ ENTREGOU</b>. O texto será gerado apenas com os documentos <b>DESMARCADOS</b>.</p>
-    <p style="font-size: 14px; color: #666;">Marque as caixas <b>Conciliador</b> ou <b>Pós Graduação</b> quando confirmado ser alguma das duas situações, caso não tenha certeza marque ambas as caixas</M></p>
+    <div id="title">
+        <h2>Checklist de Documentação</h2>
+         <label class="switch">
+            <input type="checkbox" id="darkmode"> 
+            <span class="slider"></span> 
+        </label>
+    </div>
+    
+    
+    
+    <p class="info" style="font-size: 14px;">Marque os documentos que o estagiário <b>JÁ ENTREGOU</b>. O texto será gerado apenas com os documentos <b>DESMARCADOS</b>.</p>
+    <p class="info" style="font-size: 14px;">Marque as caixas <b>Conciliador</b> ou <b>Pós Graduação</b> quando confirmado ser alguma das duas situações, caso não tenha certeza marque ambas as caixas</M></p>
 
     <div class="section-title">Documentação Geral</div>
     <div class="item">
@@ -77,5 +86,6 @@
 </div>
 
 <script src="Script.js"></script>
+<script src="Darkmode.js"></script>
 </body>
 </html>
