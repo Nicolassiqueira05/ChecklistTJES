@@ -26,18 +26,18 @@ button.addEventListener("click", () => {
         getPendencia("check_oficio", "(X) Solicitação da contratação do (a) estagiário(a) assinado pelo Gestor da vaga de estágio, nos termos Resolução nº 07/2016;"),
         getPendencia("check_foto", "(X) 01 (uma) fotografia 3x4 (Art. 24);"),
         getPendencia("check_banco", "(X) Comprovante Bancário (cópia do extrato ou cartão) contendo número da conta corrente ou universitária (Banco do Estado do Espírito Santo - Banestes) (Art. 24);"),
-        getPendencia("check_declaracao_ensino", "(X) Declaração, atualizada, da Instituição de Ensino Superior, constando a MATRÍCULA, o PERÍODO, o CURSO e o HORÁRIO DE FREQUÊNCIA (Art. 24); (OU INTEGRALIZAÇÃO CURRICULAR - UFES)"),
+        getPendencia("check_declaracao_ensino", "(X) Declaração, atualizada, da Instituição de Ensino Superior, constando a MATRÍCULA, o PERÍODO, o CURSO e o HORÁRIO DE FREQUÊNCIA (Art. 24)(OU INTEGRALIZAÇÃO CURRICULAR - UFES);"),
         getPendencia("check_rg_cpf", "(X) Cópia da Carteira de Identidade e do Cadastro de Pessoas Físicas (CPF) (Art. 24);"),
         getPendencia("check_curriculo", "(X) Currículo (deverá constar o número do telefone para contato e do endereço eletrônico (e-mail)) (Art. 24);"),
         getPendencia("check_residencia", "(X) Cópia de comprovante de residência (Art. 24);"),
         getPendencia("check_aso", "(X) ASO – Atestado de Saúde Ocupacional, fornecido por médico do trabalho, com validade de até 60 (sessenta) dias (Art. 24);"),
         getPendencia("check_titulo", "(X) Cópia do título de eleitor (Art. 24);"),
-        getPendencia("check_ctps", "(X) Carteira de Trabalho e Previdência Social – CTPS"),
+        getPendencia("check_ctps", "(X) Carteira de Trabalho e Previdência Social – CTPS;"),
         getPendencia("check_parentesco", `(X) <a href="https://www.tjes.jus.br/PDF/setorestagio/modelos/2_Formulario_Declaracao%20de%20Parentesco%2020160428.doc" target="_blank" style="color: blue; text-decoration: underline;">Declaração de parentesco, devidamente preenchida e assinada (Art. 24);</a>;`),
         getPendencia("check_vinculo_oab", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/1_Formulario_Declaracao-de-Vinculo-Profissional-20160428.odt" target="_blank" style="color: blue; text-decoration: underline;">Declaração de não vínculo profissional com escritório de advocacia (Art. 24)</a>;`),
         getPendencia("check_declaracao_banco", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/Formul%C3%A1rio-Declara%C3%A7%C3%A3o-de-Conta-Banc%C3%A1ria-20170717.pdf" target="_blank" style="color: blue; text-decoration: underline;">Declaração de Conta Bancária, devidamente preenchida e assinada</a>;`),
         getPendencia("check_formulario_cadastro", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/Fomul%C3%A1rio-de-Cadastro-de-estagi%C3%A1rios.pdf" target="_blank" style="color: blue; text-decoration: underline;">Formulário Obrigatório de Cadastro de Estagiário</a>`),
-        getPendencia("check_supervisor_anterior", `(X) Preencher <b>FORMULÁRIO DO SUPERVISOR DE ESTÁGIO</b> referente ao <b>ESTAGIÁRIO ANTERIOR</b> (modelo disponível no SEI ou em PDF <a href="https://www.tjes.jus.br/wp-content/uploads/Formulario_do_Supervisor_-_Estagiarios.pdf" target="_blank" style="color: blue; text-decoration: underline;">CLIQUE AQUI</a>)`)
+        getPendencia("check_supervisor_anterior", `(X) Preencher <b>FORMULÁRIO DO SUPERVISOR DE ESTÁGIO</b> referente ao <b>ESTAGIÁRIO ANTERIOR</b> (modelo disponível no SEI ou em PDF <a href="https://www.tjes.jus.br/wp-content/uploads/Formulario_do_Supervisor_-_Estagiarios.pdf" target="_blank" style="color: blue; text-decoration: underline;">CLIQUE AQUI</a>);`)
     ];
 
     const pendenciasCertidoes = [
