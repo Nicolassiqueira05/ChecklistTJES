@@ -1,5 +1,4 @@
 :root {
-    /* LIGHT (padrão) */
     --bg: #f0f2f5;
     --container: #ffffff;
     --border: #ddd;
@@ -16,7 +15,6 @@
     --input-bg: #ebebeb;
 }
 
-/* DARK MODE */
 body.dark {
     --bg: #0f1115;
     --container: #161a21;
@@ -34,7 +32,6 @@ body.dark {
     --input-bg: #0f1115;
 }
 
-/* BASE */
 
 label {
     user-select: none;
