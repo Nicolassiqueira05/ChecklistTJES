@@ -1,16 +1,17 @@
-let ls = localStorage;
+const ls = localStorage;
+const darkToggle = document.querySelector("#darkmode");
 
-if(ls.getItem("dark")){
-  document.querySelector("#darkmode").checked = ls.getItem("dark");
+const isDark = ls.getItem("dark") === "true";
+
+if (ls.getItem("dark") !== null) {
+  darkToggle.checked = isDark;
+  document.body.classList.toggle("dark", isDark);
 }
 
-document.querySelector("#darkmode")
-  .addEventListener("change", (e) => {
-    document.body.classList.toggle("dark", e.target.checked);
-    ls.setItem("dark", document.querySelector("#darkmode").checked)
+darkToggle.addEventListener("change", (e) => {
+  const isChecked = e.target.checked;
+  document.body.classList.toggle("dark", isChecked);
+  ls.setItem("dark", isChecked); // Stored as "true" or "false"
 });
-
-
-
 
 
