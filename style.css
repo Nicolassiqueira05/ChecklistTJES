@@ -220,6 +220,7 @@ div:hover.tooltip span {
 .switch {
     position: relative;
     display: inline-block;
+    display: none;
     width: 60px;
     height: 34px;
     scale: 0.9;
