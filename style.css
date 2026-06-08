@@ -37,10 +37,6 @@ label {
     user-select: none;
 }
 
-.switch{
-    display: none;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg);
@@ -220,7 +216,6 @@ div:hover.tooltip span {
 .switch {
     position: relative;
     display: inline-block;
-    display: none;
     width: 60px;
     height: 34px;
     scale: 0.9;
