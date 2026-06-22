@@ -1,0 +1,370 @@
+:root {
+    --bg: #f0f2f5;
+    --container: #ffffff;
+    --border: #ddd;
+
+    --text: #333;
+    --text-muted: #616161;
+
+    --info: #666;
+
+    --primary: #1a5a96;
+    --accent: #d35400;
+    --green: #27ae60;
+
+    --input-bg: #ebebeb;
+
+    --settings: #777777;
+}
+
+body.default {
+    --bg: #f0f2f5;
+    --container: #ffffff;
+    --border: #ddd;
+
+    --text: #333;
+    --text-muted: #616161;
+
+    --info: #666;
+
+    --primary: #1a5a96;
+    --accent: #d35400;
+    --green: #27ae60;
+
+    --input-bg: #ebebeb;
+
+    --settings: #777777;
+}
+
+body.dark {
+    --bg: #0f1115;
+    --container: #161a21;
+    --border: #2a2f3a;
+
+    --text: #e6edf3;
+    --text-muted: #9da7b3;
+
+    --info: #8f8f8f;
+
+    --primary: #58a6ff;
+    --accent: #f2cc60;
+    --green: #3fb950;
+
+    --input-bg: #0f1115;
+
+    --settings: #b8b8b8;
+}
+
+body.pink {
+    --bg: #ffe2ea;
+    --container: #ffffff;
+    --border: #ddd;
+
+    --text: #333;
+    --text-muted: #616161;
+
+    --info: #8f8f8f;
+
+    --primary: #dd49a1;
+    --accent: #a416c5;;
+    --green: #dc95fd;
+
+    --input-bg: #ebebeb;
+
+    --settings: #8d8d8d;
+}
+
+body.dracula {
+    --bg: #282a36;
+    --container: #303241;
+    --border: #44475a;
+
+    --text: #f8f8f2;
+    --text-muted: #bfbfbf;
+
+    --info: #c6d4ff;
+
+    --primary: #bd93f9;
+    --accent: #ff79c6;
+    --green: #50508f;
+    
+
+    --input-bg: #21222c;
+
+    --settings: #c9c9c4;
+}
+
+html{
+    scrollbar-gutter: stable;
+}
+
+label {
+    user-select: none;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    padding: 20px;
+    color: var(--text);
+    transition: 0.2s;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    background: var(--container);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+h2 {
+    color: var(--primary);
+    margin: 0;
+}
+
+.info{
+    color: var(--info);
+}
+
+#title {
+    border-bottom: 2px solid var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 10px;
+}
+
+.section-title {
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+    color: var(--accent);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.item input {
+    margin-right: 12px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.item label {
+    cursor: pointer;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 25px 0;
+}
+
+#GenerateButton {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#GenerateButton:hover {
+    filter: brightness(1.1);
+}
+
+.nota {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    text-align: center;
+}
+
+#assinatura-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+#assinatura-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs {
+    width: 400px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--input-bg);
+    font-size: 14px;
+    outline: none;
+    color: var(--text);
+    transition: 0.2s;
+}
+
+.inputs:focus {
+    border-color: var(--primary);
+}
+
+.item input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.item input:disabled + label {
+    opacity: 0.5;
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+.tooltip {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #666;
+    border-radius: 100%;
+    color: #FFF;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+div.tooltip span {
+    position: absolute;
+    visibility: hidden;
+    min-width: 100px;
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #666;
+    color: #FFF;
+    left: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+div.tooltip span:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -8px;
+    border-right: 8px solid #666;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+div:hover.tooltip span {
+    visibility: visible;
+}
+.icon_container {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    fill: var(--settings);
+    transition: transform 0.5s ease;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #111;
+    color: white;
+    padding: 20px;
+    transition: left 0.5s ease;
+}
+
+.settings_container{
+    max-width: 850px;
+    margin: auto;
+    background: var(--container);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+body:has(#settings:checked) .container {
+    display: none;
+}
+body:has(#settings:checked) .settings_container {
+    display: flex; 
+}
+
+.settings_container label[for="cars"] {
+    font-weight: bold;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    display: block;
+}
+
+.settings_container select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--input-bg);
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.5s;
+    margin-bottom: 30px;
+}
+
+.settings_container select:focus {
+    border-color: var(--primary);
+}
+
+.settings_container .save {
+    max-width: 100px;
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+    text-transform: uppercase;
+}
+
+.settings_container .save:hover {
+    filter: brightness(1.1);
+}
