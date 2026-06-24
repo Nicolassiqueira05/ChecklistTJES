@@ -105,18 +105,39 @@
                 
             </div>
             
-            <label for="cars">Tema:</label>
-            <select name="temas" id="temas">
-                <option value="default">Claro</option>
-                <option value="dark">Escuro</option>
-                <option value="pink">Rosa</option>
-                <option value="dracula">Drácula</option>
-            </select>
+            <div class="setting">
+                    <label for="temas">Tema:</label>
+                    <select name="temas" id="temas">
+                        <option value="default">Claro</option>
+                        <option value="dark">Escuro</option>
+                        <option value="pink">Erlacher</option>
+                        <option value="dracula">Drácula</option>
+                    </select>
+            </div>
 
-            <button class="save" onclick="setTheme(document.querySelector('#temas').value)">salvar</button>
+            <div class="setting">
+                    <label for="bold">Negrito:</label>
+                    <select name="bold" id="bold">
+                        <option value="true">Ativado</option>
+                        <option value="false">Desativado</option>
+                    </select>
+            </div>
+
+            <div class="setting">
+                    <label for="spacing">Espaço entre as pendências:</label>
+                    <select name="spacing" id="spacing">
+                        <option value="true">Ativado</option>
+                        <option value="false">Desativado</option>
+                    </select>
+            </div>
+            
+
+            <label for=""></label>
+
+            <button class="save" onclick="save(document.querySelector('#temas').value, document.querySelector('#bold').value, document.querySelector('#spacing').value)">salvar</button>
 
         </div>
-
+        <script src="Global.js"></script>
         <script src="Script.js"></script>
         <script src="Darkmode.js"></script>
     </body>

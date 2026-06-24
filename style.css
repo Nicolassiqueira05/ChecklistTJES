@@ -344,7 +344,6 @@ body:has(#settings:checked) .settings_container {
     outline: none;
     cursor: pointer;
     transition: border-color 0.5s;
-    margin-bottom: 30px;
 }
 
 .settings_container select:focus {
@@ -367,4 +366,39 @@ body:has(#settings:checked) .settings_container {
 
 .settings_container .save:hover {
     filter: brightness(1.1);
+}
+
+.setting{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.setting label{
+    font-weight: bold;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    display: block;
+    margin-right: 10px;
+}
+
+.setting select{
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--input-bg);
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.5s;
 }

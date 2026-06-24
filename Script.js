@@ -74,7 +74,9 @@ button.addEventListener("click", () => {
         ...(pendenciasPos.filter(i => i !== null).length > 0 && pos ? ["<br><b>Exclusivamente nos casos de estágio de Pós-Graduação:</b>", ...pendenciasPos] : []),
         ...(conciliador && con ? ["<br><b>Exclusivamente nos casos de estágio Conciliador:</b>", conciliador] : []),
         ...(supervisorNovo ? ["<br>" + supervisorNovo] : [])
-    ].filter(i => i !== null).join("<br>");
+    ].filter(i => i !== null).join(ls.getItem("spacing") == "true" ? "<br><br>" : "<br>");
+
+    console.log(corpoDocumentos)
 
     let htmlContent = `
     <div style="font-family: Arial, sans-serif; font-size: 10pt; line-height: 1.5; color: #000;">
@@ -83,7 +85,7 @@ button.addEventListener("click", () => {
         <p>Considerando que a emissão do <b>Termo de Compromisso de Estágio</b> deve ser nos termos da <b>Resolução nº 036/2025</b>, bem como o <b>Ato Normativo TJES nº 007/2026</b>.</p>
         <p>Considerando que a documentação apresentada está em desacordo com a referida Resolução, conforme descrito e assinalado abaixo, devolvemos para regularização e reenvio a esta <b>Seção de Seleção e Acompanhamento de Estágio</b> para prosseguimento e análise do pedido:</p>
        
-        <p style="margin: 0; background-color: #fbff00">${corpoDocumentos}</p>
+        <p style="margin: 0; font-weight: ${ls.getItem("bold") == "true" ? 700 : 400}; background-color: #fbff00">${corpoDocumentos}</p>
        
         <p>Atenciosamente,</br>
         ${document.querySelector("#input-nome").value}
