@@ -10,7 +10,7 @@
 
     --primary: #1a5a96;
     --accent: #d35400;
-    --green: #27ae60;
+    --button: #27ae60;
 
     --input-bg: #ebebeb;
 
@@ -29,7 +29,7 @@ body.default {
 
     --primary: #1a5a96;
     --accent: #d35400;
-    --green: #27ae60;
+    --button: #27ae60;
 
     --input-bg: #ebebeb;
 
@@ -48,7 +48,7 @@ body.dark {
 
     --primary: #58a6ff;
     --accent: #f2cc60;
-    --green: #3fb950;
+    --button: #3fb950;
 
     --input-bg: #0f1115;
 
@@ -67,7 +67,7 @@ body.pink {
 
     --primary: #dd49a1;
     --accent: #a416c5;;
-    --green: #dc95fd;
+    --button: #dc95fd;
 
     --input-bg: #ebebeb;
 
@@ -86,12 +86,68 @@ body.dracula {
 
     --primary: #bd93f9;
     --accent: #ff79c6;
-    --green: #50508f;
-    
+    --button: #50508f;
 
     --input-bg: #21222c;
 
     --settings: #c9c9c4;
+}
+
+body.selva {
+    --bg: #0f1a14;            
+    --container: #1a2a22;     
+    --border: #2e4a3a;        
+
+    --text: #e8f5e9;          
+    --text-muted: #a5c1a8;    
+
+    --info: #7fa88c;          
+
+    --primary: #2ecc71;       
+    --accent: #d09e55;        
+    --button: #27ae60;         
+
+    --input-bg: #0c1511;      
+
+    --settings: #9bbfa5;      
+}
+
+body.terracota {
+    --bg: #2b1d18;          
+    --container: #3a2620;   
+    --border: #5a3b30;      
+
+    --text: #f5e9e2;        
+    --text-muted: #d2b8a3;  
+
+    --info: #c49a84;        
+
+    --primary: #c65d3b;     
+    --accent: #e07a5f;      
+    --button: #7a9e7e;       
+
+    --input-bg: #241713;    
+
+    --settings: #d8b4a0;    
+}
+
+body.oceano {
+    --bg: #06121a;          /* azul quase preto (fundo oceano profundo) */
+    --container: #0b1e29;   /* azul escuro */
+    --border: #123544;      /* azul petróleo */
+
+    --text: #d6f1ff;        /* azul clarinho (tipo luz subaquática) */
+    --text-muted: #7fa6b8;  /* azul acinzentado */
+
+    --info: #6bbcd6;        /* ciano suave */
+
+    --primary: #2979ff;     /* ciano (destaque principal) */
+    --accent: #00bcd4;      /* azul vibrante */
+    --button: #2979ff;       /* puxando pro teal */
+
+    --input-bg: #08171f;    /* fundo de input */
+
+    --settings: #89c2d9;    /* azul claro neutro */
 }
 
 html{
@@ -177,7 +233,7 @@ hr {
 #GenerateButton {
     width: 100%;
     padding: 15px;
-    background-color: var(--green);
+    background-color: var(--button);
     color: white;
     border: none;
     border-radius: 8px;

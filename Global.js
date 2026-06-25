@@ -3,7 +3,7 @@ const ls = localStorage;
 function setTheme(color) {
     color = color ?? "default";
 
-    document.body.classList.remove("default", "dark", "pink", "dracula");
+    document.body.classList.remove("default", "dark", "pink", "dracula", "selva", "terracota", "oceano");
     document.body.classList.add(color);
 
     localStorage.setItem("tema", color);
