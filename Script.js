@@ -58,7 +58,8 @@ button.addEventListener("click", () => {
     ];
 
     const pendenciasPos = [
-        getPendencia("check_pos_diploma", "(X) Cópia do diploma de conclusão do curso superior e declaração de inexistência de inscrição ativa junto à OAB (Art. 24);"),
+        getPendencia("check_pos_diploma", "(X) Cópia do diploma de conclusão do curso superior;"),
+	getPendencia("check_pos_oab", "(X) Declaração de inexistência de inscrição ativa junto à Ordem dos Advogados do Brasil (OAB) (Art. 24);"),
         getPendencia("check_pos_vigencia", "(X) Declaração da Instituição de Ensino Superior contendo início e término do curso de pós-graduação.")
     ];
 
@@ -102,6 +103,7 @@ const checkConciliadorInfo = document.getElementById("check_conciliador_informat
 const checkPos = document.getElementById("check_pos")
 const checkPosDiploma = document.getElementById("check_pos_diploma")
 const checkPosVigencia = document.getElementById("check_pos_vigencia")
+const checkPosOAB = document.getElementById("check_pos_oab")
 
 function updateConciliador(){
     if(!checkCon.checked){
@@ -115,12 +117,15 @@ function updateConciliador(){
 function updatePos(){
     if(!checkPos.checked){
         checkPosDiploma.checked = false
+	checkPosOAB.checked = false
         checkPosVigencia.checked = false
 
         checkPosDiploma.disabled = true
+	checkPosOAB.disabled = true
         checkPosVigencia.disabled = true
     }else{
         checkPosDiploma.disabled = false
+	checkPosOAB.disabled = false
         checkPosVigencia.disabled = false
     }
 }
