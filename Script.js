@@ -34,7 +34,7 @@ button.addEventListener("click", () => {
     };
 
     const pendenciasGerais = [
-        getPendencia("check_oficio", "(X) Solicitação da contratação do (a) estagiário(a) assinado pelo Gestor da vaga de estágio, nos termos Resolução nº 07/2016;"),
+        getPendencia("check_oficio", "(X) Solicitação da contratação do (a) estagiário(a) assinado pelo Gestor da vaga de estágio, nos termos Resolução nº 036/2025;"),
         getPendencia("check_banco", "(X) Comprovante Bancário (cópia do extrato ou cartão) contendo número da conta corrente ou universitária (Banco do Estado do Espírito Santo - Banestes) (Art. 24);"),
         getPendencia("check_declaracao_ensino", "(X) Declaração, atualizada, da Instituição de Ensino Superior, constando a MATRÍCULA, o PERÍODO, o CURSO e o HORÁRIO DE FREQUÊNCIA (Art. 24)(OU INTEGRALIZAÇÃO CURRICULAR - UFES);"),
         getPendencia("check_rg_cpf", "(X) Cópia da Carteira de Identidade e do Cadastro de Pessoas Físicas (CPF) (Art. 24);"),
