@@ -48,7 +48,7 @@ button.addEventListener("click", () => {
 
     const pendenciasCertidoes = [
         getPendencia("check_certidao_eleitoral", "(X) Certidão Negativa da Justiça Eleitoral;"),
-        getPendencia("check_certidao_militar", "(X) Certidão Negativa da Justiça Militar;"),
+        getPendencia("check_certidao_militar", "(X) Certidão Negativa da Justiça Militar(disponível no site do STM);"),
         getPendencia("check_certidao_criminal", "(X) Certidão Negativa de natureza Criminal da Justiça Estadual, Federal ou Distrito Federal;")
     ];
 
