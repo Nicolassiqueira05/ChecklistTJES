@@ -34,16 +34,16 @@ button.addEventListener("click", () => {
     };
 
     const pendenciasGerais = [
-        getPendencia("check_oficio", "(X) Solicitação da contratação do (a) estagiário(a) assinado pelo Gestor da vaga de estágio, nos termos Resolução nº 056/2026;"),
+        getPendencia("check_oficio", "(X) Solicitação da contratação do (a) estagiário(a) assinado pelo Gestor da vaga de estágio, nos termos <b>Resolução nº 056/2026</b>;"),
         getPendencia("check_banco", "(X) Comprovante Bancário (cópia do extrato ou cartão) contendo Nᵒ da conta corrente ou universitária (Banco do Estado do Espírito Santo - Banestes) (Art. 16);"),
         getPendencia("check_declaracao_ensino", "(X) Declaração, atualizada, da Instituição de Ensino Superior, constando a MATRÍCULA, o PERÍODO, o CURSO e o HORÁRIO DE FREQUÊNCIA (Art. 16); (OU INTEGRALIZAÇÃO CURRICULAR - UFES)"),
         getPendencia("check_rg_cpf", "(X) Cópia da Carteira de Identidade e do Cadastro de Pessoas Físicas (CPF) (Art. 16);"),
         getPendencia("check_residencia", "(X) Cópia de comprovante de residência (contendo CEP) (Art. 16);"),
         getPendencia("check_aso", "(X) ASO – Atestado de Saúde Ocupacional, fornecido por médico do trabalho, com validade de até 60 (sessenta) dias, contados da data de emissão (Art. 16);"),
         getPendencia("check_ctps", "(X) Cópia simples da Carteira de Trabalho e Previdência Social — CPTS ou da Carteira de Trabalho Digital;"),
-        getPendencia("check_vinc", "(X) Declaração de inexistência de vínculo profissional ou de estágio com advogado ou sociedade de advogados."),
-        getPendencia("check_parentesco", `(X) <a href="https://www.tjes.jus.br/PDF/setorestagio/modelos/2_Formulario_Declaracao%20de%20Parentesco%2020160428.doc" target="_blank" style="color: blue; text-decoration: underline;">Declaração de parentesco, devidamente preenchida e assinada (Art. 16);</a>;`),
-        getPendencia("check_formulario_cadastro", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/Fomul%C3%A1rio-de-Cadastro-de-estagi%C3%A1rios.pdf" target="_blank" style="color: blue; text-decoration: underline;">Formulário Obrigatório de Cadastro de Estagiário(Com todas as informações devidamente preenchidas e legíveis, endereço, telefone, e-mail, etc)</a>`),
+        getPendencia("check_vinc", "(X) Declaração de inexistência de vínculo profissional ou de estágio com advogado ou sociedade de advogados;"),
+        getPendencia("check_parentesco", `(X) <a href="https://www.tjes.jus.br/PDF/setorestagio/modelos/2_Formulario_Declaracao%20de%20Parentesco%2020160428.doc" target="_blank" style="color: blue; text-decoration: underline;">Declaração de parentesco, devidamente preenchida e assinada (Art. 16)</a>;`),
+        getPendencia("check_formulario_cadastro", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/Fomul%C3%A1rio-de-Cadastro-de-estagi%C3%A1rios.pdf" target="_blank" style="color: blue; text-decoration: underline;">Formulário Obrigatório de Cadastro de Estagiário</a>(Com todas as informações devidamente preenchidas e legíveis, endereço, telefone, e-mail, etc);`),
         getPendencia("check_supervisor_anterior", `(X) Preencher <b>FORMULÁRIO DO SUPERVISOR DE ESTÁGIO</b> referente ao <b>ESTAGIÁRIO ANTERIOR</b> (modelo disponível no SEI ou em PDF <a href="https://www.tjes.jus.br/wp-content/uploads/Formulario_do_Supervisor_-_Estagiarios.pdf" target="_blank" style="color: blue; text-decoration: underline;">CLIQUE AQUI</a>);`)
     ];
 
@@ -65,12 +65,14 @@ button.addEventListener("click", () => {
     const conciliador = getPendencia("check_conciliador_informatica", "(X) Declaração de conhecimentos básicos em informática e digitação.");
     const supervisorNovo = getPendencia("check_dados_supervisor_novo", "(X) A Seção de Seleção e Acompanhamento de Estágio informa que se faz necessário a indicação de <b>NOME COMPLETO E CPF DO SUPERVISOR</b> do Estagiário nessa unidade.");
 
+    const certidoes = pendenciasCertidoes.filter(i => i !== null).map((texto, idx) => idx === 0 ? "<br>" + texto : texto);
+
     let corpoDocumentos = [
         ...pendenciasGerais,
-        ...pendenciasCertidoes,
+        ...certidoes,
+        ...(supervisorNovo ? ["<br>" + supervisorNovo] : []),
         ...(pendenciasPos.filter(i => i !== null).length > 0 && pos ? ["<br><b>Exclusivamente nos casos de estágio de Pós-Graduação:</b>", ...pendenciasPos] : []),
         ...(conciliador && con ? ["<br><b>Exclusivamente nos casos de estágio Conciliador:</b>", conciliador] : []),
-        ...(supervisorNovo ? ["<br>" + supervisorNovo] : [])
     ].filter(i => i !== null).join(ls.getItem("spacing") == "true" ? "<br><br>" : "<br>");
 
     console.log(corpoDocumentos)
