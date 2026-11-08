@@ -34,15 +34,16 @@ button.addEventListener("click", () => {
     };
 
     const pendenciasGerais = [
-        getPendencia("check_oficio", "(X) Solicitação da contratação do (a) estagiário(a) assinado pelo Gestor da vaga de estágio, nos termos Resolução nº 036/2025;"),
-        getPendencia("check_banco", "(X) Comprovante Bancário (cópia do extrato ou cartão) contendo número da conta corrente ou universitária (Banco do Estado do Espírito Santo - Banestes) (Art. 24);"),
-        getPendencia("check_declaracao_ensino", "(X) Declaração, atualizada, da Instituição de Ensino Superior, constando a MATRÍCULA, o PERÍODO, o CURSO e o HORÁRIO DE FREQUÊNCIA (Art. 24)(OU INTEGRALIZAÇÃO CURRICULAR - UFES);"),
-        getPendencia("check_rg_cpf", "(X) Cópia da Carteira de Identidade e do Cadastro de Pessoas Físicas (CPF) (Art. 24);"),
-        getPendencia("check_residencia", "(X) Cópia de comprovante de residência (Art. 24);"),
-        getPendencia("check_aso", "(X) ASO – Atestado de Saúde Ocupacional, fornecido por médico do trabalho, com validade de até 60 (sessenta) dias (Art. 24);"),
-        getPendencia("check_ctps", "(X) Carteira de Trabalho e Previdência Social – CTPS;"),
-        getPendencia("check_parentesco", `(X) <a href="https://www.tjes.jus.br/PDF/setorestagio/modelos/2_Formulario_Declaracao%20de%20Parentesco%2020160428.doc" target="_blank" style="color: blue; text-decoration: underline;">Declaração de parentesco, devidamente preenchida e assinada (Art. 24);</a>;`),
-        getPendencia("check_formulario_cadastro", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/Fomul%C3%A1rio-de-Cadastro-de-estagi%C3%A1rios.pdf" target="_blank" style="color: blue; text-decoration: underline;">Formulário Obrigatório de Cadastro de Estagiário</a>`),
+        getPendencia("check_oficio", "(X) Solicitação da contratação do (a) estagiário(a) assinado pelo Gestor da vaga de estágio, nos termos Resolução nº 056/2026;"),
+        getPendencia("check_banco", "(X) Comprovante Bancário (cópia do extrato ou cartão) contendo Nᵒ da conta corrente ou universitária (Banco do Estado do Espírito Santo - Banestes) (Art. 16);"),
+        getPendencia("check_declaracao_ensino", "(X) Declaração, atualizada, da Instituição de Ensino Superior, constando a MATRÍCULA, o PERÍODO, o CURSO e o HORÁRIO DE FREQUÊNCIA (Art. 16); (OU INTEGRALIZAÇÃO CURRICULAR - UFES)"),
+        getPendencia("check_rg_cpf", "(X) Cópia da Carteira de Identidade e do Cadastro de Pessoas Físicas (CPF) (Art. 16);"),
+        getPendencia("check_residencia", "(X) Cópia de comprovante de residência (contendo CEP) (Art. 16);"),
+        getPendencia("check_aso", "(X) ASO – Atestado de Saúde Ocupacional, fornecido por médico do trabalho, com validade de até 60 (sessenta) dias, contados da data de emissão (Art. 16);"),
+        getPendencia("check_ctps", "(X) Cópia simples da Carteira de Trabalho e Previdência Social — CPTS ou da Carteira de Trabalho Digital;"),
+        getPendencia("check_vinc", "(X) Declaração de inexistência de vínculo profissional ou de estágio com advogado ou sociedade de advogados."),
+        getPendencia("check_parentesco", `(X) <a href="https://www.tjes.jus.br/PDF/setorestagio/modelos/2_Formulario_Declaracao%20de%20Parentesco%2020160428.doc" target="_blank" style="color: blue; text-decoration: underline;">Declaração de parentesco, devidamente preenchida e assinada (Art. 16);</a>;`),
+        getPendencia("check_formulario_cadastro", `(X) <a href="https://www.tjes.jus.br/wp-content/uploads/Fomul%C3%A1rio-de-Cadastro-de-estagi%C3%A1rios.pdf" target="_blank" style="color: blue; text-decoration: underline;">Formulário Obrigatório de Cadastro de Estagiário(Com todas as informações devidamente preenchidas e legíveis, endereço, telefone, e-mail, etc)</a>`),
         getPendencia("check_supervisor_anterior", `(X) Preencher <b>FORMULÁRIO DO SUPERVISOR DE ESTÁGIO</b> referente ao <b>ESTAGIÁRIO ANTERIOR</b> (modelo disponível no SEI ou em PDF <a href="https://www.tjes.jus.br/wp-content/uploads/Formulario_do_Supervisor_-_Estagiarios.pdf" target="_blank" style="color: blue; text-decoration: underline;">CLIQUE AQUI</a>);`)
     ];
 
@@ -54,7 +55,7 @@ button.addEventListener("click", () => {
 
     const pendenciasPos = [
         getPendencia("check_pos_diploma", "(X) Cópia do diploma de conclusão do curso superior;"),
-	getPendencia("check_pos_oab", "(X) Declaração de inexistência de inscrição ativa junto à Ordem dos Advogados do Brasil (OAB) (Art. 24);"),
+	    getPendencia("check_pos_oab", "(X) Declaração de inexistência de inscrição ativa junto à Ordem dos Advogados do Brasil (OAB) (Art. 24);"),
         getPendencia("check_pos_vigencia", "(X) Declaração da Instituição de Ensino Superior contendo início e término do curso de pós-graduação.")
     ];
 
@@ -78,8 +79,9 @@ button.addEventListener("click", () => {
     <div style="font-family: Arial, sans-serif; font-size: 10pt; line-height: 1.5; color: #000;">
         <p><b>${Objeto(document.querySelector("#input-setor").value)} ${document.querySelector("#input-setor").value}</b></p>
         <p>Prezado (a) Senhor (a),</p>
-        <p>Considerando que a emissão do <b>Termo de Compromisso de Estágio</b> deve ser nos termos da <b>Resolução nº 036/2025</b>, bem como o <b>Ato Normativo TJES nº 007/2026</b>.</p>
-        <p>Considerando que a documentação apresentada está em desacordo com a referida Resolução, conforme descrito e assinalado abaixo, devolvemos para regularização e reenvio a esta <b>Seção de Seleção e Acompanhamento de Estágio</b> para prosseguimento e análise do pedido:</p>
+        <p>Considerando que a emissão do Termo de Compromisso de Estágio deve ser nos termos da <a href="https://sistemas.tjes.jus.br/ediario/index.php/component/ediario/?view=content&id=1852474">Resolução nº 056/2026</a>, bem como o <a href="https://sistemas.tjes.jus.br/ediario/index.php/component/ediario/?view=content&id=1852475">Ato Normativo nº 201/2026</a>.</p>
+        <p>Considerando que a documentação apresentada está em desacordo com a referida Resolução, <b>conforme descrito e assinalado abaixo</b>, devolvemos para regularização e reenvio a esta Seção de Seleção e Acompanhamento de Estágio para prosseguimento e análise do pedido:</p>
+       
        
         <p style="margin: 0; font-weight: ${ls.getItem("bold") == "true" ? 700 : 400}; background-color: #fbff00">${corpoDocumentos}</p>
        
