@@ -77,6 +77,10 @@ button.addEventListener("click", () => {
 
     console.log(corpoDocumentos)
 
+    let markupColor = document.querySelector('#markup').value
+
+    console.log(markupColor)
+
     let htmlContent = `
     <div style="font-family: Arial, sans-serif; font-size: 10pt; line-height: 1.5; color: #000;">
         <p><b>${Objeto(document.querySelector("#input-setor").value)} ${document.querySelector("#input-setor").value}</b></p>
@@ -85,7 +89,7 @@ button.addEventListener("click", () => {
         <p>Considerando que a documentação apresentada está em desacordo com a referida Resolução, <b>conforme descrito e assinalado abaixo</b>, devolvemos para regularização e reenvio a esta Seção de Seleção e Acompanhamento de Estágio para prosseguimento e análise do pedido:</p>
        
        
-        <p style="margin: 0; font-weight: ${ls.getItem("bold") == "true" ? 700 : 400}; background-color: #fbff00">${corpoDocumentos}</p>
+        <p style="margin: 0; font-weight: ${ls.getItem("bold") == "true" ? 700 : 400}; background-color: ${markupColor};">${corpoDocumentos}</p>
        
         <p>Atenciosamente,</br>
         ${document.querySelector("#input-nome").value}
@@ -95,6 +99,8 @@ button.addEventListener("click", () => {
 
     writeClipboardHTML(htmlContent, htmlContent.replace(/<[^>]*>/g, ''));
 });
+//#fbff00
+//#FF9999
 
 const checkCon = document.getElementById("check_con")
 const checkConciliadorInfo = document.getElementById("check_conciliador_informatica")
@@ -134,3 +140,156 @@ checkPos.addEventListener("change", updatePos)
 
 updateConciliador()
 updatePos()
+
+
+const container = document.querySelector("#items");
+const btnToggle = document.querySelector("#toggle-drag");
+const btnClear = document.querySelector("#clear-drag");
+const ordemOriginal = [...container.children]; // guarda a ordem padrão
+let dragAtivo = false;
+let itemArrastado = null;
+
+// identifica cada elemento (item ou título) de forma estável
+const chave = el => el.querySelector("input")?.id ?? "titulo:" + el.textContent.trim();
+
+// adiciona o "⋮⋮" em cada item
+container.querySelectorAll(".item").forEach(item => {
+    const handle = document.createElement("span");
+    handle.className = "drag-handle";
+    handle.style.marginRight = "8px";
+    handle.textContent = "⋮⋮";
+    item.prepend(handle);
+});
+
+function atualizarEstadoDrag() {
+    container.classList.toggle("editando", dragAtivo);
+    container.querySelectorAll(".item").forEach(item => {
+        item.draggable = dragAtivo;
+    });
+
+    btnToggle.innerHTML = `<svg class="icon" height="24px" viewBox="0 -960 960 960" width="24px">${
+        dragAtivo
+            ? '<path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>'
+            : '<path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>'
+    }</svg>`;
+    btnToggle.classList.toggle("disabled", !dragAtivo);
+    btnClear.style.display = dragAtivo ? "flex" : "none";
+}
+
+function salvarOrdem() {
+    const ordem = [...container.children].map(chave);
+    localStorage.setItem("ordem_pendencias", JSON.stringify(ordem));
+}
+
+function restaurarOrdem() {
+    const ordem = JSON.parse(localStorage.getItem("ordem_pendencias") || "null");
+    if (!ordem) return;
+
+    const porChave = new Map([...container.children].map(el => [chave(el), el]));
+    ordem.forEach(k => {
+        const el = porChave.get(k);
+        if (el) { container.appendChild(el); porChave.delete(k); }
+    });
+    porChave.forEach(el => container.appendChild(el)); // itens novos vão pro final
+}
+
+function resetarOrdem() {
+    localStorage.removeItem("ordem_pendencias");
+    ordemOriginal.forEach(el => container.appendChild(el)); // checkboxes continuam marcados
+}
+
+btnToggle.addEventListener("click", () => {
+    dragAtivo = !dragAtivo;
+    if (!dragAtivo) salvarOrdem();
+    atualizarEstadoDrag();
+});
+
+btnClear.addEventListener("click", resetarOrdem);
+
+// --- drag and drop ---
+function getElementoAbaixo(y) {
+    return [...container.querySelectorAll(".item:not(.dragging)")].reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        return (offset < 0 && offset > closest.offset) ? { offset, element: child } : closest;
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+let drag = null;
+
+container.addEventListener("pointerdown", e => {
+    const handle = e.target.closest(".drag-handle");
+    if (!dragAtivo || !handle) return;
+
+    const item = handle.closest(".item");
+    const rect = item.getBoundingClientRect();
+
+    // limites medidos ANTES de mexer em qualquer coisa
+    const todos = [...container.querySelectorAll(".item")];
+    const limiteTopo = todos[0].getBoundingClientRect().top;
+    const limiteFundo = todos[todos.length - 1].getBoundingClientRect().bottom;
+
+    const placeholder = document.createElement("div");
+    placeholder.className = "item-placeholder";
+    placeholder.style.height = rect.height + "px";
+    item.after(placeholder);
+
+    Object.assign(item.style, {
+        position: "fixed",
+        left: rect.left + "px",
+        top: rect.top + "px",
+        width: rect.width + "px",
+        margin: "0",
+        zIndex: "10"
+    });
+    item.classList.add("dragging");
+
+    handle.setPointerCapture(e.pointerId);
+    drag = { item, placeholder, offsetY: e.clientY - rect.top, height: rect.height, limiteTopo, limiteFundo };
+    e.preventDefault();
+});
+
+container.addEventListener("pointermove", e => {
+    if (!drag) return;
+    const { item, placeholder, offsetY, height, limiteTopo, limiteFundo } = drag;
+
+    const maxTop = limiteFundo - height;
+    const top = Math.max(limiteTopo, Math.min(e.clientY - offsetY, maxTop));
+    item.style.top = top + "px";
+
+    const itens = [...container.querySelectorAll(".item:not(.dragging)")];
+    const centro = top + height / 2;
+
+    let abaixo;
+    if (top <= limiteTopo + 1) {
+        abaixo = itens[0];          // colado no topo: primeiro lugar
+    } else if (top >= maxTop - 1) {
+        abaixo = null;              // colado no fundo: último lugar
+    } else {
+        abaixo = itens.find(el => {
+            const b = el.getBoundingClientRect();
+            return centro < b.top + b.height / 2;
+        });
+    }
+
+    if (abaixo) {
+        if (placeholder.nextElementSibling !== abaixo) container.insertBefore(placeholder, abaixo);
+    } else if (container.lastElementChild !== placeholder) {
+        container.appendChild(placeholder);
+    }
+});
+
+function soltar() {
+    if (!drag) return;
+    const { item, placeholder } = drag;
+    item.style.cssText = "";
+    item.classList.remove("dragging");
+    placeholder.replaceWith(item);
+    drag = null;
+}
+
+container.addEventListener("pointerup", soltar);
+container.addEventListener("pointercancel", soltar);
+
+restaurarOrdem();
+atualizarEstadoDrag();

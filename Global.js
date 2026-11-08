@@ -27,13 +27,24 @@ function setSpacing(boolean){
     const select = document.querySelector("#spacing")
     if (select) select.value = boolean
 }
-console.log(1)
+
+function setMarkup(color) {
+    console.log(color)
+    color = color ?? "#fbff00";
+
+    localStorage.setItem("markup", color);
+
+    const select = document.querySelector("#markup");
+    if (select) select.value = color;
+}
+
 if(ls.getItem("tema")){
     setTheme(ls.getItem("tema"))
 }else{
     ls.setItem("tema", "default")
     setTheme(ls.getItem("tema"))
 }
+
 if(ls.getItem("bold")){
     setBold(ls.getItem("bold"))
 }else{
@@ -47,9 +58,18 @@ if(ls.getItem("spacing")){
     ls.setItem("spacing", "false")
     setSpacing(ls.getItem("spacing"))
 }
-function save(theme, bold, spacing){
+
+if(ls.getItem("markup")){
+    setMarkup(ls.getItem("markup"))
+}else{
+    ls.setItem("markup", "fbff00")
+    setMarkup(ls.getItem("markup"))
+}
+
+function save(theme, bold, spacing, markup){
     setTheme(theme)
     setBold(bold)
     setSpacing(spacing)
+    setMarkup(markup)
 }
 
