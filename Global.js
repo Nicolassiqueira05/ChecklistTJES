@@ -62,7 +62,7 @@ if(ls.getItem("spacing")){
 if(ls.getItem("markup")){
     setMarkup(ls.getItem("markup"))
 }else{
-    ls.setItem("markup", "fbff00")
+    ls.setItem("markup", "#fbff00")
     setMarkup(ls.getItem("markup"))
 }
 
